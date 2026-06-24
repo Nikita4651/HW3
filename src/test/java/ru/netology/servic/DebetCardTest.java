@@ -1,5 +1,9 @@
 package ru.netology.servic;
 
+
+import org.openqa.selenium.WebDriver;
+
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,6 +24,11 @@ class DebetCardTest {
 
     private WebDriver driver;
 
+    @BeforeAll
+    static void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+    }
+
 
     @BeforeEach
     void setup() {
@@ -34,7 +43,7 @@ class DebetCardTest {
         driver.get("http://localhost:9999");
     }
 
-    //@AfterEach
+    @AfterEach
     void tearDown() {
         driver.quit();
         driver = null;
